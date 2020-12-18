@@ -1,0 +1,100 @@
+﻿<Page
+    x:Class="Hario.Shared.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hario.Shared.Views"
+    xmlns:hario="using:Hario.Shared.Models" 
+    xmlns:wasm="http://uno.ui/wasm"
+    xmlns:skia="http://uno.ui/skia"
+    xmlns:android="http://uno.ui/android"
+    xmlns:controls="using:Hario.Shared.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Windows.UI.Xaml.Media" 
+    mc:Ignorable="d wasm skia android"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowsState">
+                <VisualState x:Name="VS1">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="2000"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HarioStoryGridView.HorizontalAlignment" Value="Left"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VS2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HarioStoryGridView.HorizontalAlignment" Value="Left"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VS3">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HarioStoryGridView.HorizontalAlignment" Value="Left"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VS4">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HarioStoryGridView.HorizontalAlignment" Value="Center"/>
+                        <Setter Target="HarioStoryGridView.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="LeftPanel.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+        <GridView x:Name="HarioStoryGridView" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
+                  wasm:Margin="0,50,0,0" skia:Margin="0,50,0,0">
+            <GridView.Header>
+                <Rectangle Height="50"/>
+            </GridView.Header>
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="hario:HairoStory">
+                    <controls:HairStoryCard StoreLogoUrl="{x:Bind StoreLogo, Mode=OneWay}" StoryUrl="{x:Bind StoryUrl, Mode=OneWay}" 
+                                            StoreName="{x:Bind StoreName, Mode=OneWay}" Service="{x:Bind Service, Mode=OneWay}"/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <ScrollViewer x:Name="LeftPanel" Grid.Column="1">
+            <StackPanel Margin="0,50,0,0">
+                <Rectangle Height="400" Width="350" Fill="Green"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+              Grid.ColumnSpan="2">
+            <Grid.Background>
+                <media:AcrylicBrush TintOpacity="0.2" AlwaysUseFallback="False"/>
+            </Grid.Background>
+            <Image Source="/Assets/AppAssets/AppLogo.png" Margin="5"/>
+            <ComboBox PlaceholderText="Chọn giới tính" VerticalAlignment="Center" HorizontalAlignment="Left"
+                      Margin="5">
+                <ComboBoxItem Content="Tất cả"/>
+                <ComboBoxItem Content="Nam"/>
+                <ComboBoxItem Content="Nữ"/>
+            </ComboBox>
+            <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                    Margin="5">
+                <Viewbox MaxHeight="50" MaxWidth="50">
+                    <SymbolIcon Symbol="Add" Foreground="Orange"/>
+                </Viewbox>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

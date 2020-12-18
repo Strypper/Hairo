@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6279c845-92f8-4333-ab99-3d213163593c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Hario.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HairoStory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserControls\HairStoryCard.xaml.cs">
+      <DependentUpon>HairStoryCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HairShopLocation.xaml.cs">
+      <DependentUpon>HairShopLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControls\HairStoryCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\HairShopLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\AppAssets\AppLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\ACELONDONHAIR.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\GENTLEMAN.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\Logo30Shine.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair3.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair4.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair5.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair6.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair7.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair8.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\MenHair9.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DemoPurpose\TONIANDGUY.png" />
+    <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Wallpaper\Sand1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Assets\Wallpaper\" />
+  </ItemGroup>
+</Project>
